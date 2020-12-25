@@ -1,0 +1,28 @@
+
+     <h3>User info</h3>
+      <div class="row">
+          <table class="table">
+            <thead>
+     
+            </thead>
+            <tbody>
+              <tr>
+              <%= attachment_image_tag user, :profile_image, :fill, 60, 60, format: 'jpeg', class: " pull-left profile-img", fallback: "no_image.jpg" %>  
+              </tr>
+              <tr>
+              <th><p>name</p></th>
+              <th><p class="profile-name"><%= user.name %></p></th>
+              </tr>
+              <tr>
+              <th><p>introduction</p></th>
+              <th><p class="profile-introduction"><%= user.introduction %></p></th>
+              </tr>
+   
+            </tbody>
+          </table>
+          <div class="row">
+          <%= link_to "/users/#{user.id}/edit" , class: "btn btn-default col-xs-12" do %>
+            <i class="glyphicon glyphicon-wrench"></i>
+            <% end %>
+          </div>
+      </div>

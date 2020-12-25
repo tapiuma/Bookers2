@@ -1,0 +1,41 @@
+<p id="notice"><%= notice %></p>
+<div class="container">
+<div class="row">
+	<div class ="col-xs-3">
+	<%= render partial: 'users/info', locals: {user: @user} %>
+	<%= render partial: 'books/form', locals: {book: @new_book} %>
+	</div>
+	<div class="users-container">
+	<h2>Users</h2>
+	<div class ="col-xs-9">
+		<table class="table">
+			<thead>
+			    <tr>
+			    <th>image</th>
+			    <th>name</th>
+			    <th></th>
+			    <th colspan="3"></th>
+			    </tr>
+			</thead>
+			<tbody>
+			<% @users.each do |user| %>
+			<tr> 
+				<td>
+				<%= link_to "/users/#{user[:id]}" do %>
+				<%= attachment_image_tag user, :profile_image, :fill,60,60, format: 'jpeg', class: "img profile-img", fallback: "no_image.jpg" %>
+				<% end %>
+				</td>
+				<td>
+				<%= user.name %>
+				</td>
+				<td>
+				<%= link_to 'Show', "/users/#{user[:id]}" %>
+				</td>
+			</tr>  
+			<% end %>
+			</tbody>
+		</table>
+	</div>
+	</div>
+</div>
+</div>
